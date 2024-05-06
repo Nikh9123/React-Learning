@@ -1,0 +1,3 @@
+#skip ultimate react course folder and node_modules
+/ultimate-react-course-main
+/08-how-react-works
