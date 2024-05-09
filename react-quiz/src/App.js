@@ -2,39 +2,41 @@ import { act, useEffect, useReducer, useState } from "react";
 // import DateCounter from "./DateCounter";
 import Header from "./Header";
 import Main from "./Main";
+import Loader from "./Loader";
+import Error from "./Error.js"
+import StartScreen from "./StartScreen.js";
 
 const APIKEY = "K0KB5o4wyeKBhu27IJae42plPTdBL8XrIyK1eApn ";
 const intialState = {
-  questions : [] ,
+  questions: [],
 
   //'loading', 'error', 'ready', 'active', 'finished'
-  status : 'loading'
-}
+  status: "loading",
+};
 
-function reducer(state, action){
-  switch(action.type){
-    case  "dataReceived" :
-      return {
-        ...state , 
-        questions : action.payload ,
-        status : "ready"
-      };
-    case "dataFailed" :
+function reducer(state, action) {
+  switch (action.type) {
+    case "dataReceived":
       return {
         ...state,
-        questions : [],
-        status : "error"
-      }
-      default :
-      throw new Error("Action unknown❌")
+        questions: action.payload,
+        status: "ready",
+      };
+    case "dataFailed":
+      return {
+        ...state,
+        questions: [],
+        status: "error",
+      };
+    default:
+      throw new Error("Action unknown❌");
   }
 }
 
 function App() {
   const [data, setdata] = useState([]);
 
-  
-  const [{questions, status}, dispatch] = useReducer(reducer, intialState) ;
+  const [{ questions, status }, dispatch] = useReducer(reducer, intialState);
 
   useEffect(() => {
     async function fetchData() {
@@ -46,16 +48,14 @@ function App() {
       console.log(questions);
     }
     fetchData();
-  },[]);
+  }, []);
 
   useEffect(() => {
     fetch("http://localhost:8000/questions")
-      .then((res) => 
-        res.json()
-      )
-      .then((data) => dispatch({type : "dataReceived" , payload : data}))
+      .then((res) => res.json())
+      .then((data) => dispatch({ type: "dataReceived", payload: data }))
       .catch((err) => {
-        console.log(err)
+        dispatch({ type: "dataFailed" });
       });
   }, []);
 
@@ -63,9 +63,10 @@ function App() {
     <div className="app">
       <Header />
       <Main>
-        <p>1/10</p>
-        <p>Question?</p>
-      </Main>
+        {status === "loading" && <Loader />}
+        {status === "error" && <Error />}
+        {status === "ready" && <StartScreen />}
+        </Main>
     </div>
   );
 }
