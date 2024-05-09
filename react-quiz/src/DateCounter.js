@@ -26,7 +26,6 @@ function reducer(state, action){
     default :
     throw new Error("Unknown Action")
    }
-
 }
 
 function DateCounter() {
@@ -71,7 +70,7 @@ function DateCounter() {
     dispatch({type :"reset"})
     // setStep(1);
   };
-
+ 
   return (
     <div className="counter">
       <div>

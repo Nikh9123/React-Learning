@@ -40,13 +40,32 @@ body {
   width: 50rem;
 }
 
+/* .app-header {
+  width: 0rem;
+  margin-bottom: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+} */
 .app-header {
-  width: 66rem;
+  width: 40rem; /* You can adjust this as needed */
   margin-bottom: 4rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
+
+.app-header h1 {
+  flex: 4; /* Make all h1 elements inside app-header flexible */
+  text-align: center; /* Center-align the text */
+}
+
+/* If you want all h1 elements to have the same font size */
+.app-header h1 {
+  font-size: 6rem; /* Adjust as needed */
+}
+
+
 
 .error {
   text-align: center;
@@ -256,4 +275,41 @@ progress {
 .counter * {
   font-size: inherit;
   padding: 0.8rem;
+}
+
+.logo {
+  position: relative; /* Ensure proper positioning of pseudo-elements */
+}
+
+.logo:before,
+.logo:after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  box-sizing: inherit; 
+  width: 100%; /* Adjust width and height as needed */
+  height: 100%;
+  transform-origin: center; /* Set transform origin */
+}
+
+.logo:before {
+  transform: rotate(60deg);
+}
+
+.logo:after {
+  transform: rotate(-60deg);
+}
+
+.app-logo {
+  animation: spin 4s linear infinite; /* Apply the 'spin' animation to the image */
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg); /* Start rotation from 0 degrees */
+  }
+  100% {
+    transform: rotate(360deg); /* End rotation at 360 degrees (full circle) */
+  }
 }
