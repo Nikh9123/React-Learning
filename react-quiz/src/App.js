@@ -5,6 +5,7 @@ import Main from "./Main";
 import Loader from "./Loader";
 import Error from "./Error.js"
 import StartScreen from "./StartScreen.js";
+import Question from "./Question.js";
 
 const APIKEY = "K0KB5o4wyeKBhu27IJae42plPTdBL8XrIyK1eApn ";
 const intialState = {
@@ -12,6 +13,7 @@ const intialState = {
 
   //'loading', 'error', 'ready', 'active', 'finished'
   status: "loading",
+  index : 0,
 };
 
 function reducer(state, action) {
@@ -28,6 +30,10 @@ function reducer(state, action) {
         questions: [],
         status: "error",
       };
+    case "start":
+      return {
+        ...state, status : "active"
+      }
     default:
       throw new Error("Action unknown❌");
   }
@@ -36,8 +42,9 @@ function reducer(state, action) {
 function App() {
   const [data, setdata] = useState([]);
 
-  const [{ questions, status }, dispatch] = useReducer(reducer, intialState);
+  const [{ questions, status, index }, dispatch] = useReducer(reducer, intialState);
 
+  const questionLength = questions.length ;
   useEffect(() => {
     async function fetchData() {
       const res = await fetch(
@@ -65,7 +72,8 @@ function App() {
       <Main>
         {status === "loading" && <Loader />}
         {status === "error" && <Error />}
-        {status === "ready" && <StartScreen />}
+        {status === "ready" && <StartScreen dispatch={dispatch} numOFQuestions={questionLength} />}
+        {status === "active" && <Question index={index} Question={questions[index]}/>}
         </Main>
     </div>
   );

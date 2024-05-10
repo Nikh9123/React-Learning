@@ -1,5 +1,5 @@
 :root {
-  --color-darkest: #343a40;
+  --color-darkest: #212223;
   --color-dark: #495057;
   --color-medium: #ced4da;
   --color-light: #f1f3f5;
@@ -48,7 +48,7 @@ body {
   justify-content: space-between;
 } */
 .app-header {
-  width:min-content; /* You can adjust this as needed */
+  width: min-content; /* You can adjust this as needed */
   margin-bottom: 4rem;
   display: flex;
   align-items: center;
@@ -65,8 +65,6 @@ body {
 .app-header h1 {
   font-size: 6rem; /* Adjust as needed */
 }
-
-
 
 .error {
   text-align: center;
@@ -288,7 +286,7 @@ progress {
   position: absolute;
   top: -10px;
   left: -10px;
-  box-sizing: inherit; 
+  box-sizing: inherit;
   width: 100%; /* Adjust width and height as needed */
   height: 100%;
   transform-origin: center; /* Set transform origin */
@@ -315,31 +313,29 @@ progress {
   }
 }
 
-
-.challenge{
-  
-    font-family: 'Roboto', sans-serif;
-    font-size: 28px;
-    color: #007bff; /* Blue color */
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+.challenge {
+  font-family: "Roboto", sans-serif;
+  font-size: 28px;
+  color: #007bff; /* Blue color */
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 @font-face {
-  font-family: 'Rocher';
+  font-family: "Rocher";
   src: url(https://assets.codepen.io/9632/RocherColorGX.woff2);
 }
 
 /* Apply the font directly to the element */
 .purples {
-  font-family: 'Rocher', sans-serif; /* Use the Rocher font */
+  font-family: "Rocher", sans-serif; /* Use the Rocher font */
   /* Add any other styles you want to apply */
   color: purple; /* Set the text color to purple for example */
 }
 
-.mint{
-  font-family: 'Rocher', sans-serif;
+.mint {
+  font-family: "Rocher", sans-serif;
   color: #889388; /* Green color */
 }
 /* CSS */
@@ -362,23 +358,24 @@ progress {
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+  font-family: cursive;
 }
 
 .button-86::after,
 .button-86::before {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 0;
   right: 0;
   z-index: -99999;
-  transition: all .4s;
+  transition: all 0.4s;
 }
 
 .button-86::before {
   transform: translate(0%, 0%);
   width: 100%;
   height: 100%;
-  background: #28282d;
+  background: #c7b73cd7;
   border-radius: 10px;
 }
 
@@ -408,4 +405,120 @@ progress {
 .button-86:active::after {
   transition: 0s;
   transform: translate(0, 5%);
+}
+
+.text-floating {
+  animation-name: floating;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  margin-left: 30px;
+  margin-top: 5px;
+  font-family: cursive;
+  color: #c5d439;
+}
+
+@keyframes floating {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(0, 15px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+.glow-on-hover {
+  width: 220px;
+  height: 50px;
+  border: none;
+  outline: none;
+  color: #fff;
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+}
+
+.glow-on-hover:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #ff0000
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+.glow-on-hover:active {
+  color: #000;
+}
+
+.glow-on-hover:active:after {
+  background: transparent;
+}
+
+.glow-on-hover:hover:before {
+  opacity: 1;
+}
+
+.glow-on-hover:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #111;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+@keyframes glowing {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.question-container {
+  display: flex;
+  justify-content: center; /* Align horizontally in center */
+  align-items: center; /* Align vertically in center */
+  /* height: 100vh; Adjust the height as needed */
+}
+
+.question-header {
+  letter-spacing: 0.03em;
+  font-size: 4em;
+  margin: 20px;
+  font-family: "Henny Penny", cursive;
+  color: #ffdd40;
+  white-space: nowrap;
 }
