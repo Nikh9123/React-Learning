@@ -167,6 +167,7 @@ progress {
   flex-direction: column;
   gap: 1.2rem;
   margin-bottom: 3.2rem;
+  margin-left: 100px;
 }
 
 .btn-option {
@@ -431,8 +432,8 @@ progress {
 }
 
 .glow-on-hover {
-  width: 220px;
-  height: 50px;
+  width: 350px; /* Increase width */
+  height: 60px; /* Increase height */
   border: none;
   outline: none;
   color: #fff;
