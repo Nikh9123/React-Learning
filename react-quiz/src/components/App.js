@@ -7,6 +7,8 @@ import Error from "./Error.js";
 import StartScreen from "./StartScreen.js";
 import Question from "./Question.js";
 import NextButton from "./NextButton.js";
+import Progress from "./Progress.js";
+import FinishScreen from "./FinishScreen.js";
 
 const APIKEY = "K0KB5o4wyeKBhu27IJae42plPTdBL8XrIyK1eApn ";
 const intialState = {
@@ -17,6 +19,7 @@ const intialState = {
   index: 0,
   answer: null,
   points: 0,
+  highscore: 0,
 };
 
 console.log(intialState.index);
@@ -55,7 +58,22 @@ function reducer(state, action) {
       return {
         ...state,
         index: state.index + 1,
-        answer : null,
+        answer: null,
+      };
+    case "finish":
+      return {
+        ...state,
+        status: "finished",
+        highscore:
+          state.points > state.highscore ? state.points : state.highscore,
+      };
+    case "restart":
+      return {
+        ...state,
+        status: "ready",
+        index: 0,
+        answer: null,
+        points: 0,
       };
     default:
       throw new Error("Action unknown❌");
@@ -65,12 +83,15 @@ function reducer(state, action) {
 function App() {
   const [data, setdata] = useState([]);
 
-  const [{ questions, status, index, answer }, dispatch] = useReducer(
-    reducer,
-    intialState
-  );
+  const [{ questions, status, index, answer, points, highscore }, dispatch] =
+    useReducer(reducer, intialState);
 
   const questionLength = questions.length;
+  const maxPossiblePoints = questions.reduce(
+    (prev, cur) => prev + cur.points,
+    0
+  );
+
   useEffect(() => {
     async function fetchData() {
       const res = await fetch(
@@ -103,14 +124,35 @@ function App() {
         )}
         {status === "active" && (
           <>
+            <Progress
+              numQuestions={questionLength}
+              index={index}
+              points={points}
+              maxPossiblePoints={maxPossiblePoints}
+              answer={answer}
+            />
             <Question
               index={index}
               Question={questions[index]}
               dispatch={dispatch}
               answer={answer}
             />
-            {index !== questions.length ? <NextButton dispatch={dispatch} answer={answer} /> : null}
+
+            <NextButton
+              dispatch={dispatch}
+              answer={answer}
+              index={index}
+              numOfQuestions={questionLength}
+            />
           </>
+        )}
+        {status === "finished" && (
+          <FinishScreen
+            points={points}
+            maxPossiblePoints={maxPossiblePoints}
+            highscore={highscore}
+            dispatch={dispatch}
+          />
         )}
       </Main>
     </div>
