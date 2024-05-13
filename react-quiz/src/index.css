@@ -432,8 +432,8 @@ progress {
 }
 
 .glow-on-hover {
-  width: 350px; /* Increase width */
-  height: 60px; /* Increase height */
+  width: 350px; 
+  height: 60px;
   border: none;
   outline: none;
   color: #fff;
@@ -523,3 +523,15 @@ progress {
   color: #ffdd40;
   white-space: nowrap;
 }
+
+/* .glow-on-hover.correct {
+  background-color: var(--color-theme);
+  border: 2px solid var(--color-theme);
+  color: var(--color-light);
+}
+
+.glow-on-hover.wrong {
+  background-color: var(--color-accent);
+  border: 2px solid var(--color-accent);
+  color: var(--color-darkest);
+} */

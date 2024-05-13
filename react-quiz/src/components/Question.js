@@ -1,6 +1,6 @@
 import Options from "./Options";
 
-function Question({ index, Question }) {
+function Question({ index, Question, dispatch, answer }) {
   console.log(Question);
   return (
     <div>
@@ -8,7 +8,7 @@ function Question({ index, Question }) {
       <div class="question-container">
         <h1 class="question-header">{Question.question}</h1>
       </div>
-      <Options Question={Question} />
+      <Options Question={Question} dispatch={dispatch} answer={answer}/>
     </div>
   );
 }
