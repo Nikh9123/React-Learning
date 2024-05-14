@@ -108,7 +108,7 @@ h4 {
 }
 
 .progress {
-  margin-bottom: 4rem;
+  /* margin-bottom: 4rem; */
   display: grid;
   justify-content: space-between;
   gap: 1.2rem;
@@ -517,8 +517,6 @@ progress {
 
 .question-header {
   letter-spacing: 0.03em;
-  font-size: 4em;
-  margin: 20px;
   font-family: "Henny Penny", cursive;
   color: #ffdd40;
   white-space: nowrap;
