@@ -35,6 +35,126 @@
         "lng": 13.376933665713324
       },
       "id": 98443197
+    },
+    {
+      "cityName": "Paris",
+      "country": "France",
+      "emoji": "🇫🇷",
+      "date": "2027-05-20T12:45:00.000Z",
+      "notes": "The city of love!",
+      "position": {
+        "lat": 48.8566,
+        "lng": 2.3522
+      },
+      "id": 45678901
+    },
+    {
+      "cityName": "Tokyo",
+      "country": "Japan",
+      "emoji": "🇯🇵",
+      "date": "2027-08-10T18:30:00.000Z",
+      "notes": "Fascinating city!",
+      "position": {
+        "lat": 35.6895,
+        "lng": 139.6917
+      },
+      "id": 12345678
+    },
+    {
+      "cityName": "New York City",
+      "country": "United States",
+      "emoji": "🇺🇸",
+      "date": "2027-03-25T09:00:00.000Z",
+      "notes": "The Big Apple!",
+      "position": {
+        "lat": 40.7128,
+        "lng": -74.0060
+      },
+      "id": 98765432
+    },
+    {
+      "cityName": "Sydney",
+      "country": "Australia",
+      "emoji": "🇦🇺",
+      "date": "2027-11-28T15:00:00.000Z",
+      "notes": "Beautiful harbor city!",
+      "position": {
+        "lat": -33.8688,
+        "lng": 151.2093
+      },
+      "id": 13579246
+    },
+    {
+      "cityName": "Rome",
+      "country": "Italy",
+      "emoji": "🇮🇹",
+      "date": "2027-09-05T10:30:00.000Z",
+      "notes": "Eternal city!",
+      "position": {
+        "lat": 41.9028,
+        "lng": 12.4964
+      },
+      "id": 24680135
+    },
+    {
+      "cityName": "Rio de Janeiro",
+      "country": "Brazil",
+      "emoji": "🇧🇷",
+      "date": "2027-07-20T14:15:00.000Z",
+      "notes": "Vibrant city!",
+      "position": {
+        "lat": -22.9068,
+        "lng": -43.1729
+      },
+      "id": 11111111
+    },
+    {
+      "cityName": "Dubai",
+      "country": "United Arab Emirates",
+      "emoji": "🇦🇪",
+      "date": "2027-04-18T08:45:00.000Z",
+      "notes": "City of skyscrapers!",
+      "position": {
+        "lat": 25.276987,
+        "lng": 55.296249
+      },
+      "id": 22222222
+    },
+    {
+      "cityName": "Bangkok",
+      "country": "Thailand",
+      "emoji": "🇹🇭",
+      "date": "2027-10-05T13:20:00.000Z",
+      "notes": "City that never sleeps!",
+      "position": {
+        "lat": 13.7563,
+        "lng": 100.5018
+      },
+      "id": 33333333
+    },
+    {
+      "cityName": "Cape Town",
+      "country": "South Africa",
+      "emoji": "🇿🇦",
+      "date": "2027-06-15T11:10:00.000Z",
+      "notes": "African gem!",
+      "position": {
+        "lat": -33.9249,
+        "lng": 18.4241
+      },
+      "id": 44444444
+    },
+    {
+      "cityName": "Seoul",
+      "country": "South Korea",
+      "emoji": "🇰🇷",
+      "date": "2027-12-10T17:50:00.000Z",
+      "notes": "City of contrasts!",
+      "position": {
+        "lat": 37.5665,
+        "lng": 126.9780
+      },
+      "id": 55555555
     }
   ]
 }
